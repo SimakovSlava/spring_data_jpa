@@ -1,8 +1,6 @@
-package com.example.spring_course_springboot2.service;
+package com.example.spring_data_jpa.service;
 
-
-
-import com.example.spring_course_springboot2.entity.Employee;
+import com.example.spring_data_jpa.entity.Employee;
 
 import java.util.List;
 
@@ -14,4 +12,6 @@ public interface EmployeeService {
     public Employee getEmployee(int id);
 
     public void deleteEmployee(int id);
+
+    public List<Employee> findAllByName(String name);
 }

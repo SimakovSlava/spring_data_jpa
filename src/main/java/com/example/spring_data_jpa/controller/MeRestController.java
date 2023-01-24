@@ -1,7 +1,7 @@
-package com.example.spring_course_springboot2.controller;
+package com.example.spring_data_jpa.controller;
 
-import com.example.spring_course_springboot2.entity.Employee;
-import com.example.spring_course_springboot2.service.EmployeeService;
+import com.example.spring_data_jpa.entity.Employee;
+import com.example.spring_data_jpa.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,5 +48,11 @@ public class MeRestController {
         Employee employee = employeeService.getEmployee(id);
         employeeService.deleteEmployee(id);
         return "Employee with ID = " + id + " was deleted";
+    }
+
+    @GetMapping("/employees/name/{name}")
+    public List<Employee> showAllEmployeesByName(@PathVariable String name){
+        List<Employee> employees = employeeService.findAllByName(name);
+        return employees;
     }
 }
